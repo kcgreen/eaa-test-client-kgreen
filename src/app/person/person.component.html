@@ -1,0 +1,59 @@
+<form name="form" (ngSubmit)="personForm.form.valid && save()" #personForm="ngForm" novalidate>
+
+	<mat-card>
+		<mat-card-title>
+			Person Information
+		</mat-card-title>
+		<mat-form-field>
+			<input matInput placeholder="First Name"
+				name="givenname" [(ngModel)]="person.givenname"
+				#givenname="ngModel" required>
+		</mat-form-field>
+		<mat-error *ngIf="(personForm.submitted || givenname.dirty || givenname.touched) && givenname.invalid">	
+			<div *ngIf="givenname.errors.required">
+				First Name is required.
+			</div>
+		</mat-error>
+		<br>
+		<mat-form-field>
+			<input matInput placeholder="Last Name"
+				name="surname" [(ngModel)]="person.surname"
+				#surname="ngModel" required>
+		</mat-form-field>
+		<mat-error *ngIf="(personForm.submitted || surname.dirty || surname.touched) && surname.invalid">	
+			<div *ngIf="surname.errors.required">
+				Last Name is required.
+			</div>
+		</mat-error>
+		<br>
+		<mat-form-field>
+			<input matInput placeholder="Email Address"
+				name="email" [(ngModel)]="person.email"
+				#email="ngModel" required email>
+		</mat-form-field>
+		<mat-error *ngIf="(personForm.submitted || email.dirty || email.touched) && email.invalid">	
+			<div *ngIf="email.errors.required">
+				Email is required.
+			</div>	
+			<div *ngIf="!email.errors.required && email.errors.email">
+				Email is not an email address.
+			</div>
+		</mat-error>
+	</mat-card>
+	
+	<mat-card *ngIf="person.id">
+		<mat-card-title>
+			Employee Identifier
+		</mat-card-title>
+		<mat-label>
+			<label>{{ person.id }}</label>
+		</mat-label>
+	</mat-card>
+	
+	
+	<mat-card>
+		<button mat-raised-button type="button" (click)="cancel()">Cancel</button>
+		<button mat-raised-button color="accent" type="submit">Save</button>
+	</mat-card>
+	
+</form>

@@ -1,0 +1,9 @@
+mat-card {
+	margin: 20px;
+}
+
+#createButton {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}

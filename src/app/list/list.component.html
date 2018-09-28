@@ -1,0 +1,10 @@
+<mat-card *ngFor="let person of list">
+	<mat-card-title>{{ person.surname }}, {{ person.givenname }}</mat-card-title>
+	<mat-card-subtitle>{{ person.email }}</mat-card-subtitle>
+	<mat-card-actions>
+		<button (click)='goPerson(person)' mat-button><mat-icon>edit</mat-icon></button>
+		<button (click)='delPerson(person)' mat-button><mat-icon>delete</mat-icon></button>
+	</mat-card-actions>
+</mat-card>
+
+<a id="createButton" mat-fab routerLink="/person"><mat-icon>add</mat-icon></a>

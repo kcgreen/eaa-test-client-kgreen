@@ -1,0 +1,7 @@
+{
+	"name": "Edmunds & Associates",
+	"start_url": "/",
+	"orientation": "portrait",
+	"scope": "/",
+	"display": "standalone"
+}
